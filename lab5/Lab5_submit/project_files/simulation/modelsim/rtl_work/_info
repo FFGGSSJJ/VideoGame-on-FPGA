@@ -1,0 +1,337 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/ECE385/lab5/simulation/modelsim
+vadd_sub9
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1630499396
+!i10b 1
+!s100 JDzg8`5ai5K4L:SFnfG_=3
+IXY9_^ONQMWFM1^;b2fW`f1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 !s105 Add_Sub_9_sv_unit
+S1
+R0
+Z5 w1630481590
+Z6 8C:/ECE385/lab5/Add_Sub_9.sv
+Z7 FC:/ECE385/lab5/Add_Sub_9.sv
+L0 1
+Z8 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z9 !s108 1630499396.000000
+Z10 !s107 C:/ECE385/lab5/Add_Sub_9.sv|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/Add_Sub_9.sv|
+!i113 1
+Z12 o-sv -work work
+Z13 !s92 -sv -work work +incdir+C:/ECE385/lab5
+Z14 tCvgOpt 0
+vcontrol
+R1
+R2
+!i10b 1
+!s100 Fihd7Ga`R[IhHGE[G;Y7>3
+Ik;mVh@aGAZH59V9]MECI?1
+R3
+!s105 control_sv_unit
+S1
+R0
+w1630473426
+8C:/ECE385/lab5/control.sv
+FC:/ECE385/lab5/control.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab5/control.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/control.sv|
+!i113 1
+R12
+R13
+R14
+vfour_bit_adder
+R1
+R2
+!i10b 1
+!s100 B8ICi1D?124R`7VdSXmA41
+IFI;e:X5A7nbHcPJ1zfkdB2
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 29
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+vfull_adder
+R1
+R2
+!i10b 1
+!s100 9gzmbnHGzLnbQ1mi0`PKa2
+IkIZ@ne0?P>]<;2N^3TXhG2
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 45
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+vHexDriver
+R1
+R2
+!i10b 1
+!s100 ^DddjRd7Wla]U<SlP;mT@0
+Ia8;?B9QPYoiTUbRUPFRbY1
+R3
+!s105 HexDriver_sv_unit
+S1
+R0
+w1630504670
+8C:/ECE385/lab5/HexDriver.sv
+FC:/ECE385/lab5/HexDriver.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab5/HexDriver.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/HexDriver.sv|
+!i113 1
+R12
+R13
+R14
+n@hex@driver
+vprocessor
+R1
+R2
+!i10b 1
+!s100 7=VzfE0H]]0cTQZ:>G3SD1
+IJ`TCS?z;S5^UQ120IXPSZ2
+R3
+!s105 processor_sv_unit
+S1
+R0
+w1630484581
+8C:/ECE385/lab5/processor.sv
+FC:/ECE385/lab5/processor.sv
+L0 7
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab5/processor.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/processor.sv|
+!i113 1
+R12
+R13
+R14
+vreg_8
+R1
+R2
+!i10b 1
+!s100 AXDzj?_?eZ4hKcKof@=bm2
+IEiUDZgeSRfGX3UL?fQ@zL3
+R3
+!s105 Reg_8_sv_unit
+S1
+R0
+w1633854569
+8C:/ECE385/lab5/Reg_8.sv
+FC:/ECE385/lab5/Reg_8.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab5/Reg_8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/Reg_8.sv|
+!i113 1
+R12
+R13
+R14
+vregister_unit
+R1
+R2
+!i10b 1
+!s100 W1m@H]]2Hbkli2aIEMRB?0
+IF1Ek>a<OeZT2[kXTndHez2
+R3
+!s105 Reg_unit_sv_unit
+S1
+R0
+w1630485308
+8C:/ECE385/lab5/Reg_unit.sv
+FC:/ECE385/lab5/Reg_unit.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab5/Reg_unit.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/Reg_unit.sv|
+!i113 1
+R12
+R13
+R14
+vsync
+R1
+R2
+!i10b 1
+!s100 2W5Vz0:F6ckE2`eJOTK5l1
+IhWUoS26ikJPbebH?L[MAV2
+R3
+Z15 !s105 Synchronizers_sv_unit
+S1
+R0
+Z16 w1473596184
+Z17 8C:/ECE385/lab5/Synchronizers.sv
+Z18 FC:/ECE385/lab5/Synchronizers.sv
+L0 4
+R8
+r1
+!s85 0
+31
+R9
+Z19 !s107 C:/ECE385/lab5/Synchronizers.sv|
+Z20 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/Synchronizers.sv|
+!i113 1
+R12
+R13
+R14
+vsync_r0
+R1
+R2
+!i10b 1
+!s100 IGd9f_F;JNjVBLQ@DAnD10
+IU^WA95P>ni9gR@LBi[OTD1
+R3
+R15
+S1
+R0
+R16
+R17
+R18
+L0 18
+R8
+r1
+!s85 0
+31
+R9
+R19
+R20
+!i113 1
+R12
+R13
+R14
+vsync_r1
+R1
+R2
+!i10b 1
+!s100 1CXiH1DYDbAUS69Ee2j060
+Iz3aWhXSYIDV>:5VD`a:FB1
+R3
+R15
+S1
+R0
+R16
+R17
+R18
+L0 39
+R8
+r1
+!s85 0
+31
+R9
+R19
+R20
+!i113 1
+R12
+R13
+R14
+vtestbench
+R1
+R2
+!i10b 1
+!s100 W@KG[DjBAK@<m<`jko=@72
+I6FAVRSj4QD1in=X;FNBE_1
+R3
+!s105 testbench_sv_unit
+S1
+R0
+w1630510671
+8C:/ECE385/lab5/testbench.sv
+FC:/ECE385/lab5/testbench.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab5/testbench.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/testbench.sv|
+!i113 1
+R12
+R13
+R14
+vX_reg
+R1
+R2
+!i10b 1
+!s100 cc1D9Z2_D_NVA:?i0UI9d1
+Ilk3o<ok_`>EEmYH^6UYXA2
+R3
+!s105 X_reg_sv_unit
+S1
+R0
+w1630483039
+8C:/ECE385/lab5/X_reg.sv
+FC:/ECE385/lab5/X_reg.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab5/X_reg.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab5|C:/ECE385/lab5/X_reg.sv|
+!i113 1
+R12
+R13
+R14
+n@x_reg
