@@ -1,0 +1,75 @@
+module kid_FSM (
+    input logic Clk, 
+    input logic Reset,
+    input [7:0] keycode, 
+    output logic [3:0] kid_state
+);
+    enum logic [2:0] {
+        STAND,
+        WALKR1, 
+        WALKR2,
+        WALKR3
+    } state, next_state;
+
+    logic walk_r1, walk_r2, walk_r3, stand_;
+
+    always_ff @( posedge Clk ) begin
+        if (Reset) begin
+            state <= STAND;
+        end
+        else begin
+            state <= next_state;
+        end
+    end
+
+    always_comb begin
+        next_state = state;
+        walk_r1 = 1'b0;
+        walk_r2 = 1'b0;
+        walk_r3 = 1'b0;
+        stand_ = 1'b1;
+
+        kid_state = {stand_, walk_r1, walk_r2, walk_r3}
+        
+        case (state)
+            STAND: begin
+                if (keycode == 8'd07)   next_state = WALKR1;
+                else                    next_state = STAND;
+            end
+            WALKR1: begin
+                if (keycode == 8'd07)   next_state = WALKR2;
+                else                    next_state = STAND;
+            end
+            WALKR2: begin
+                if (keycode == 8'd07)   next_state = WALKR3;
+                else                    next_state = STAND;
+            end
+            WALKR3: begin
+                if (keycode == 8'd07)   next_state = WALKR1;
+                else                    next_state = STAND;
+            end
+            default:                    next_state = state;
+        endcase
+
+        case (state)
+            STAND: begin
+                stand_ = 1'b1;
+            end
+            WALKR1: begin
+                walk_r1 = 1'b1;
+                stand_ = 1'b0;
+            end
+            WALKR2: begin
+                walk_r2 = 1'b1;
+                stand_ = 1'b0;
+            end
+            WALKR3: begin
+                walk_r3 = 1'b1;
+                stand_ = 1'b0;
+            end
+            default:;
+        endcase
+        
+    end
+    
+endmodule

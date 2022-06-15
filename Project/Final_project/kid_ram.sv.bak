@@ -1,0 +1,297 @@
+module kid (
+    input Clk, 
+    input logic kid_exist,
+    input logic [7:0] kid_state,  // indicate what state is the kid when moving right/left
+    
+    input logic [9:0] DrawX, DrawY,       // Current pixel coordinates
+    input logic [9:0] kid_x,            // x coordinate of kid
+	input logic [9:0] kid_y,            // y coordinate of kid
+    output logic [3:0] kid_data,   // index of background color
+	output logic is_kid
+);
+    // screen size
+    parameter [9:0] SCREEN_WIDTH =  10'd480;
+    parameter [9:0] SCREEN_LENGTH = 10'd640;
+	parameter [9:0] KID_WIDTH =  10'd30;
+    parameter [9:0] KID_LENGTH = 10'd30;
+
+    parameter [9:0] CENTERX =  10'd15;  // center of the kid
+	parameter [9:0] CENTERY =  10'd15;
+    parameter [9:0] CORNERX =  10'd0;   // left up corner of the kid
+	parameter [9:0] CORNERY =  10'd0;
+
+    logic [18:0] read_address;
+    logic [3:0] kid_stand, kidr1_data, kidr2_data, kidr3_data, kid_die;
+	logic [3:0] kid_standl, kidl1_data, kidl2_data, kidl3_data;
+    assign read_address = CENTERX-(kid_x - DrawX) + (CENTERY-(kid_y - DrawY))*KID_LENGTH;
+    KID_RAM KID_RAM(.*);
+	KID_R1_RAM KID_R1_RAM(.*);
+	KID_R2_RAM KID_R2_RAM(.*);
+	KID_R3_RAM KID_R3_RAM(.*);
+	KID_L_RAM KID_L_RAM(.*);
+	KID_L1_RAM KID_L1_RAM(.*);
+	KID_L2_RAM KID_L2_RAM(.*);
+	KID_L3_RAM KID_L3_RAM(.*);
+
+
+    always_comb 
+    begin
+
+		is_kid = 1'b0;
+		kid_data = kid_stand;
+		if (kid_exist == 1'b1 &&
+            DrawX >= kid_x - (CENTERX - CORNERX) && DrawX <= kid_x + CENTERX &&
+            DrawY >= kid_y - (CENTERY - CORNERY) && DrawY <= kid_y + CENTERY ) begin
+				is_kid = 1'b1;
+				case (kid_state)
+					7'b00000001: kid_data = kid_stand;		// stand_r
+					7'b00000010: kid_data = kidr1_data;		// walkr1
+					7'b00000100: kid_data = kidr2_data;		// walkr2
+					7'b00001000: kid_data = kidr3_data;		// walkr2
+					7'b00010000: kid_data = kid_standl;		// stand_l
+					7'b00100000: kid_data = kidl1_data;		// walkl1
+					7'b01000000: kid_data = kidl2_data;		// walkl2
+					7'b10000000: kid_data = kidl3_data;		// walkl3
+					default: kid_data = kid_stand;
+				endcase
+		end
+
+
+		// if (kid_exist == 1'b1 && stand_ == 1 &&
+        //     DrawX >= kid_x - (CENTERX - CORNERX) && DrawX <= kid_x + CENTERX &&
+        //     DrawY >= kid_y - (CENTERY - CORNERY) && DrawY <= kid_y + CENTERY ) begin
+		// 		is_kid = 1'b1;
+		// 		kid_data = kid_stand;
+		// end
+		// else if (kid_exist == 1'b1 && walk_r1 == 1 &&
+        //     DrawX >= kid_x - (CENTERX - CORNERX) && DrawX <= kid_x + CENTERX &&
+        //     DrawY >= kid_y - (CENTERY - CORNERY) && DrawY <= kid_y + CENTERY ) begin
+		// 		is_kid = 1'b1;
+		// 		kid_data = kid_r1;
+		// end
+			
+	end
+endmodule
+
+
+module  KID_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kid_stand
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/kid.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kid_stand<= mem[read_address];
+end
+
+endmodule
+
+
+
+module  KID_R1_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kidr1_data
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/walkr5.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kidr1_data<= mem[read_address];
+end
+
+endmodule
+
+
+
+module  KID_R2_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kidr2_data
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/walkr6.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kidr2_data<= mem[read_address];
+end
+
+endmodule
+
+
+
+module  KID_R3_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kidr3_data
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/walkr8.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kidr3_data<= mem[read_address];
+end
+
+endmodule
+
+
+module  KID_L_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kid_standl;
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/kidl.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kid_standl<= mem[read_address];
+end
+
+endmodule
+
+
+
+module  KID_L1_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kidl1_data
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/walkl5.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kidl1_data<= mem[read_address];
+end
+
+endmodule
+
+
+
+module  KID_L2_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kidl2_data
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/walkl6.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kidl2_data<= mem[read_address];
+end
+
+endmodule
+
+
+module  KID_L3_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kidl3_data
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/walkl8.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kidl3_data<= mem[read_address];
+end
+
+endmodule
+
+
+
+module  KID_DIE_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] kid_data
+);
+// mem has width of 4 bits and a total of 307200 addresses
+
+//logic [3:0] mem [0:307199];
+logic [3:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/die.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	kid_data<= mem[read_address];
+end
+
+endmodule
+

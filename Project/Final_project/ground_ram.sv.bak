@@ -1,0 +1,58 @@
+module ground (
+    input Clk, 
+    input logic ground_exist,
+    input logic [9:0] DrawX, DrawY,       // Current pixel coordinates
+    input logic [9:0] ground_x,            // x coordinate of kid
+	input logic [9:0] ground_y,            // y coordinate of kid
+    output logic [3:0] ground_data,   // index of ground color
+	output logic is_ground
+);
+    // screen size
+	parameter [9:0] SCREEN_WIDTH =  10'd480;
+    parameter [9:0] SCREEN_LENGTH = 10'd640;
+	parameter [9:0] GROUND_WIDTH =  10'd30;
+    parameter [9:0] GROUND_LENGTH = 10'd30;
+
+    parameter [9:0] CENTERX =  10'd15;  // center of the kid
+	parameter [9:0] CENTERY =  10'd15;
+    parameter [9:0] CORNERX =  10'd0;   // left up corner of the kid
+	parameter [9:0] CORNERY =  10'd0;
+    logic [18:0] read_address;
+    assign read_address = CENTERX-(ground_x - DrawX) + (CENTERY-(ground_y - DrawY))*GROUND_LENGTH;
+    ground_RAM ground_RAM(.*);
+
+    always_comb 
+    begin
+		is_ground = 1'b0;
+		if (ground_exist == 1'b1 && 
+            DrawX >= ground_x - (CENTERX - CORNERX) && DrawX <= ground_x + CENTERX &&
+            DrawY >= ground_y - (CENTERY - CORNERY) && DrawY <= ground_y + CENTERY )
+			is_ground = 1'b1;
+	end
+endmodule
+
+
+module  ground_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [3:0] ground_data
+);
+// mem has width of 4 bits and a total of 307200 addresses
+parameter [9:0] SCREEN_WIDTH =  10'd480;
+parameter [9:0] SCREEN_LENGTH = 10'd640;
+
+//logic [3:0] mem [0:307199];
+logic [2:0] mem [0:899];
+initial
+begin
+	 $readmemh("sprite_hex/ground_.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	ground_data<= mem[read_address];
+end
+
+endmodule

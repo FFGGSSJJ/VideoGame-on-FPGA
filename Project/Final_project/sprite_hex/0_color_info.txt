@@ -1,0 +1,27 @@
+
+16 -> 640*480
+background_hex = ['0xD1F7FF', '0xD4F6FF', '0xB6DBEB', '0x9FD8F5', '0x99DDFD', '0x9BDEFE', '0xabdd62', '0xbfe28e', 
+                  '0xe1fdcd', '0xd4fafe', '0xa3d4e3', '0xe9f8ff', '0xd1fdff', '0xacdd69', '0xb2f1fe', '0xccf49c']
+
+6 -> 6*6
+bullet_hex = ['0xffffff','0x1d1e36', '0x000000', '0xaca407', '0xd0c600', '0xffff00']
+
+4 -> 35*34
+killer_hex = ['0x000000','0xefebef', '0xd6d7d6', '0x939593', '0xffffff']
+
+11 -> 30*30
+kid_hex = ['0xf30303','0xffffff', '0x1E1E1E', '0x3F0606', '0x880606', '0xAB0000', '0x5A2712', '0x937050', 
+           '0xFFC78F', '0x154269', '0x111A8F']
+
+7 -> 30*30
+ground_hex = ['0x010000','0x080000', '0x0A0300', '0x6A5010', '0x227D00', '0x4DE013', '0x34BC00']
+
+16 -> 320*240
+startpage_hex = ['0xCFE3FC', '0x10309d', '0xc4d8f9', '0x5a821f', '0x7fa126', '0x507f15', '0xb02c15', '0xfacfad',
+                 '0xff050a', '0x942313', '0x663723', '0x863d1d', '0x5d503d', '0x78694c', '0x65480e', '0x030207']
+
+                 Error (10170): Verilog HDL syntax error at 0_FSM.sv(51) near text: "=";  expecting "++", or "--". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number.
+
+
+['0x650111', '0xfdff07', '0xc5ce05', '0x5d9cc4', '0x595951', '0xc38130', '0xaeaeac'] save
+['0xadffda', '0xfdff07', '0xc5ce05', '0x5d9cc4', '0x595951', '0x1bff15', '0xaeaeac'] saved

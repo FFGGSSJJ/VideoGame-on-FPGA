@@ -1,0 +1,69 @@
+module killerFSM (
+    input logic Clk, 
+    input logic Clk_s,
+    input logic Reset,
+    input logic [9:0] kid_x, kid_y,
+    output logic [2:0][9:0] mov_x, mov_y
+    output logic move
+);
+
+
+
+logic move;
+assign mov_x = '{10'd135, 10'd165, 10'd195};
+enum logic [3:0] {
+    HOLD,
+    MOVE,
+    MOVED
+} state, next_state;
+
+always_ff @( posedge Clk ) begin
+    if (Reset) begin
+        state <= HOLD;
+    end
+    else begin
+        state <= next_state;
+    end
+end
+
+
+always_comb begin
+    next_state = state;
+    mov_y = '{10'd465, 10'd465, 10'd465};
+    move = 1'b0;
+
+    case (state)
+        HOLD: begin
+            if (kid_x >= 10'd110) next_state = MOVE; 
+            else                  next_state = HOLD;
+        end
+        MOVE: begin
+            if (mov_y[0] <= 10'd30) next_state = MOVED;
+            else                    next_state = MOVE;
+        end
+        MOVED: begin
+            next_state = MOVED;
+        end
+        default: next_state = state;
+    endcase
+    
+
+    // move killers
+    case (state)
+        HOLD: begin
+            mov_y = '{10'd465, 10'd465, 10'd465};
+        end
+        MOVE: begin
+            mov_y[0] = mov_y[0] - 10'd3;
+            mov_y[1] = mov_y[1] - 10'd3;
+            mov_y[2] = mov_y[2] - 10'd3;
+            move = 1'b1;
+        end
+        MOVED: begin
+            mov_y = '{10'd30, 10'd30, 10'd30};
+        end
+        default: mov_y = mov_y;
+    endcase
+end
+
+endmodule

@@ -1,0 +1,32 @@
+module collision (
+    input logic [6:0][9:0] ground_x,
+    input logic [6:0][9:0] ground_y, 
+    input logic [9:0] kid_x, kid_y,
+    output logic is_collision_x_right, is_collision_x_left,
+    output logic is_collision_y_down, is_collision_y_up
+);
+
+    parameter [9:0] kid_size = 10'd15;
+    parameter [9:0] ground_size = 10'd15;
+    parameter [9:0] GROUND_X6 = 10'd470;
+    parameter [9:0] GROUND_Y6 = 10'd420;
+    always_comb begin
+        is_collision_x_right = 1'b0;
+        is_collision_x_left = 1'b0;
+        is_collision_y_down = 1'b0;
+        is_collision_y_up = 1'b0;
+        // right collosion  // adding 10'd9 for precheck
+        if ((kid_x + kid_size >= ground_x[0] - ground_size && kid_x + kid_size <= ground_x[0] + ground_size &&
+            ((kid_y - ground_y[0] < kid_size + ground_size && kid_y - ground_y[0] >= 0) ||
+             (ground_y[0] - kid_y < kid_size + ground_size && ground_y[0] - kid_y >= 0))) )
+            is_collision_x_right = 1'b1;
+        if ()
+        // down collision
+        if ((kid_y + kid_size + 10'd9 >= ground_y[0] - ground_size && kid_y + kid_size + 10'd9 <= ground_y[0] + ground_size &&
+            ((ground_x[0] - kid_x < kid_size + ground_size && ground_x[0] - kid_x >= 0) || 
+             (kid_x - ground_x[0] < kid_size + ground_size && kid_x - ground_x[0] >= 0))) )
+            is_collision_y_down = 1'b1;
+    end
+    
+    
+endmodule

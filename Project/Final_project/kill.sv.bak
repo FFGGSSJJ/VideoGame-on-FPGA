@@ -1,0 +1,40 @@
+module kill (
+    input logic [9:0] killer_x,
+    input logic [9:0] killer_y, 
+    input logic [9:0] kid_x, kid_y,
+    output logic is_kill,
+    output logic kid_exist,
+);
+
+    parameter [9:0] kid_size = 10'd15;
+    parameter [9:0] killer_size = 10'd15;
+    parameter [9:0] NUM = 10'd9;
+
+    always_comb begin
+        is_kill = 1'b0;
+        kid_exist = 1'b1;
+        // right collosion 
+        if ((kid_x + kid_size >= killer_x - killer_size && kid_x + kid_size <= killer_x + killer_size &&
+            ((kid_y - killer_y < kid_size + killer_size && kid_y - killer_y >= 0) ||
+             (killer_y - kid_y < kid_size + killer_size && killer_y - kid_y >= 0))) ) begin
+                 is_kill = 1'b1;
+                 kid_exist = 1'b0;
+        end
+        // left collosion 
+        if ((kid_x - kid_size >= killer_x - killer_size && kid_x - kid_size <= killer_x + killer_size &&
+            ((kid_y - killer_y < kid_size + killer_size && kid_y - killer_y >= 0) ||
+             (killer_y - kid_y < kid_size + killer_size && killer_y - kid_y >= 0))) ) begin
+                 is_kill = 1'b1;
+                 kid_exist = 1'b0;
+        end
+        // down collision  // adding 10'd9 for precheck
+        if ((kid_y + kid_size + 10'd9 >= killer_y - killer_size && kid_y + kid_size + 10'd9 <= killer_y + killer_size &&
+            ((killer_x - kid_x < kid_size + killer_size && killer_x - kid_x >= 0) || 
+             (kid_x - killer_x < kid_size + killer_size && kid_x - killer_x >= 0))) ) begin
+                 is_kill = 1'b1;
+                 kid_exist = 1'b0;
+        end
+        
+    end
+    
+endmodule
