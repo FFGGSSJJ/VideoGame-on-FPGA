@@ -1,0 +1,87 @@
+// for all muxes implemented below, we default that 
+// input signals A, B, C, D... are selcted as 0, 1, 2, 3...
+
+// 2-to-1 mux
+module mux2_1 (
+    input logic SEL, 
+    input logic A, B,  
+    output logic Out
+);
+    always_comb begin
+        case (SEL)
+            0: 
+                begin
+                    assign Out = A; 
+                end
+            default: 
+                begin
+                    assign Out = B;
+                end
+        endcase
+    end
+    
+endmodule
+
+
+// 4-to-1 mux
+module mux4_1 (
+    input logic [1:0] SEL, 
+    input logic A, B, C, D, 
+    output logic Out
+);
+    always_comb begin
+        case (SEL)
+        0:
+            begin
+                assign Out = A;        
+            end
+        1:
+            begin
+                assign Out = B;
+            end
+        2:
+            begin
+                assign Out = C;
+            end
+        default:
+            begin
+                assign Out = D;
+            end
+        endcase
+    end
+endmodule
+
+
+// mux work as the gate of bus line
+module mux_bus (
+    input logic [3:0] Gate, 
+    input logic [15:0] MAR_out, PC_out, ALU_out, MDR_out, 
+
+    output logic [15:0] Out
+);
+    always_comb begin
+        case(Gate)
+        4'b0001:
+            begin
+                assign Out = MDR_out;
+            end
+        4'b0010:
+            begin
+                assign Out = ALU_out;
+            end
+        4'b0100:
+            begin
+                assign Out = PC_out;
+            end
+        4'b1000:
+            begin
+                assign Out = MAR_out;
+            end
+        default:
+            begin
+                assign Out = 16'b0;
+            end
+        endcase
+    end
+    
+endmodule

@@ -1,0 +1,85 @@
+module logic_nzp (
+    input logic Clk, Reset
+    input logic [15:0] data_in, 
+
+    output logic [2:0] nzp
+);
+    logic S;
+    logic [15:0] nums;
+    logic [15:0] ones = 16'b1111;
+
+    always_ff @(posedge Clk) begin
+        nums <= data_in;
+        S <= data_in[15];
+    end
+
+    always_comb begin
+        ones = ones & data_in;
+        case(S)
+            1: nzp = 3'b100;    // negative
+            default:
+                if (ones != 16'b0)  nzp = 3'b001;
+                else                nzp = 3'b010;
+        endcase
+    end
+    
+endmodule
+
+
+module nzp_ff (
+    input logic Clk, Reset,
+    input logic [2:0] nzp,
+    input logic Load,
+
+    output logic N, Z, P
+);
+    always_ff @(posedge Clk) begin
+        if (Load_CC) {
+            N <= nzp[0];
+            Z <= nzp[1];
+            P <= nzp[2];
+        } else if (Reset) {
+            N <= 1'b0;
+            Z <= 1'b0;
+            P <= 1'b0;
+        }
+    end
+    
+endmodule
+
+
+module BR_COMP (
+    input logic Clk, Reset,
+    input logic N, Z, P,
+    input logic Load,
+    input logic [2:0] comp_nzp,
+
+    output logic BEN
+);
+    logic N_i, Z_i, P_i;
+    logic [2:0] nzp_i;
+    logic BEN_i;
+    always_ff @(posedge Clk) begin
+        if (Load) {
+            N_i <= N;
+            Z_i <= Z;
+            P_i <= P;
+            nzp_i <= comp_nzp;
+        } else if (Reset) {
+            N_i <= 1'b0;
+            Z_i <= 1'b0;
+            P_i <= 1'b0;
+            nzp_i <= 3'b000;
+        }
+    end
+
+    always_comb begin
+        if ((N_i^nzp_i[2] & Z_i^nzp_i[1] & P_i^nzp_i[0]) != 0)
+            BEN_i = 1'b1;
+        else
+            BEN_i = 1'b0;
+
+        assign BEN = BEM_i;
+    end
+    
+endmodule
