@@ -1,0 +1,9 @@
+21:45:48 **** Incremental Build of configuration Nios II for project FUCK ****
+make all 
+Info: Building ../FUCK_bsp/
+C:/Quartus/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../FUCK_bsp/
+[BSP build complete]
+[FUCK build complete]
+
+21:45:49 Build Finished (took 1s.95ms)
+
