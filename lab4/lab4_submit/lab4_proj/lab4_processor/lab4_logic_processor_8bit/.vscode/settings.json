@@ -1,0 +1,10 @@
+{
+    "cSpell.enableFiletypes": [
+        "systemverilog"
+    ],
+    "cSpell.words": [
+        "endcase",
+        "endmodule",
+        "posedge"
+    ]
+}

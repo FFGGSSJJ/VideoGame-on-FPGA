@@ -1,0 +1,188 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/ECE385/lab4_proj/simulation/modelsim
+vcarry_select_adder
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1630502348
+!i10b 1
+!s100 U?T=Z3fQ;<MRYa=D9B6QB3
+I0dLd4WP@6zhK4DYM<:WgN3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 !s105 carry_select_adder_sv_unit
+S1
+R0
+Z5 w1630478628
+Z6 8C:/ECE385/lab4_proj/ece385sp16_lab4_adders/carry_select_adder.sv
+Z7 FC:/ECE385/lab4_proj/ece385sp16_lab4_adders/carry_select_adder.sv
+L0 1
+Z8 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z9 !s108 1630502348.000000
+Z10 !s107 C:/ECE385/lab4_proj/ece385sp16_lab4_adders/carry_select_adder.sv|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab4_proj/ece385sp16_lab4_adders|C:/ECE385/lab4_proj/ece385sp16_lab4_adders/carry_select_adder.sv|
+!i113 1
+Z12 o-sv -work work
+Z13 !s92 -sv -work work +incdir+C:/ECE385/lab4_proj/ece385sp16_lab4_adders
+Z14 tCvgOpt 0
+vCRA
+R1
+R2
+!i10b 1
+!s100 N:;9TzC77<c[f8H@4b;Fz0
+IVl8F;WfVXE?_dYfTckIK]1
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 25
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+n@c@r@a
+vfull_adder1
+R1
+R2
+!i10b 1
+!s100 O3434ZE5UTSMCf?V@CV9W2
+I8FG2l5:YO?1AWbcPge9Ye2
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 64
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+vHexDriver
+R1
+R2
+!i10b 1
+!s100 =R2i165HPJgkY;aA[TRmG3
+I_IQ8zoJBUVAMeBVQcgaHo3
+R3
+!s105 HexDriver_sv_unit
+S1
+R0
+w1453881922
+8C:/ECE385/lab4_proj/ece385sp16_lab4_adders/HexDriver.sv
+FC:/ECE385/lab4_proj/ece385sp16_lab4_adders/HexDriver.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab4_proj/ece385sp16_lab4_adders/HexDriver.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab4_proj/ece385sp16_lab4_adders|C:/ECE385/lab4_proj/ece385sp16_lab4_adders/HexDriver.sv|
+!i113 1
+R12
+R13
+R14
+n@hex@driver
+vlab4_adders_toplevel
+R1
+Z15 !s110 1630502349
+!i10b 1
+!s100 JD[>08GCoFfH65EZ1jaIE3
+IzHMz:VoL02[IzeU>7Cl=j1
+R3
+!s105 lab4_adders_toplevel_sv_unit
+S1
+R0
+w1630501488
+8C:/ECE385/lab4_proj/ece385sp16_lab4_adders/lab4_adders_toplevel.sv
+FC:/ECE385/lab4_proj/ece385sp16_lab4_adders/lab4_adders_toplevel.sv
+L0 17
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/ECE385/lab4_proj/ece385sp16_lab4_adders/lab4_adders_toplevel.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab4_proj/ece385sp16_lab4_adders|C:/ECE385/lab4_proj/ece385sp16_lab4_adders/lab4_adders_toplevel.sv|
+!i113 1
+R12
+R13
+R14
+vpart_CSA
+R1
+R2
+!i10b 1
+!s100 XnP>_4AJ^bM?7e4=]?0Qf2
+IZUk5mS?U16KXQBR81?_lJ1
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 39
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+npart_@c@s@a
+vtestbench
+R1
+R15
+!i10b 1
+!s100 cHn3>7M4Azd4N4L[hSH[D1
+I^8>jLPGGzPRL_VCECEiH72
+R3
+!s105 testbench_adder_sv_unit
+S1
+R0
+w1630461748
+8C:/ECE385/lab4_proj/ece385sp16_lab4_adders/testbench_adder.sv
+FC:/ECE385/lab4_proj/ece385sp16_lab4_adders/testbench_adder.sv
+L0 5
+R8
+r1
+!s85 0
+31
+!s108 1630502349.000000
+!s107 C:/ECE385/lab4_proj/ece385sp16_lab4_adders/testbench_adder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE385/lab4_proj/ece385sp16_lab4_adders|C:/ECE385/lab4_proj/ece385sp16_lab4_adders/testbench_adder.sv|
+!i113 1
+R12
+R13
+R14
