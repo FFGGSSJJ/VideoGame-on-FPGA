@@ -23,9 +23,11 @@ Quartus Prime 18.1 Lite Edition
 
 DE2-115
 
-##### Demo Video
+##### Demo
 
-to be uploaded.
+![iwanna](../imgs/iwanna.png)
+
+Video to be uploaded.
 
 ### 
 
